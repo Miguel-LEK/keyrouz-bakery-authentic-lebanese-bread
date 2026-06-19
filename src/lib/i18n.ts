@@ -1,6 +1,32 @@
 export type Lang = "en" | "ar";
 
-export const translations = {
+type Dict = {
+  nav: { home: string; menu: string; wholesale: string; about: string; contact: string; call: string };
+  hero: { kicker: string; title: string; subtitle: string; cta1: string; cta2: string };
+  menu: {
+    title: string; subtitle: string; search: string; special: string; empty: string;
+    cats: { all: string; manakish: string; bread: string; viennoiserie: string; desserts: string };
+  };
+  wholesale: {
+    title: string; subtitle: string; bullets: string[];
+    form: {
+      name: string; business: string; email: string; phone: string;
+      type: string; message: string; submit: string; sending: string;
+      success: string; error: string;
+      options: { bread: string; pastry: string; catering: string; other: string };
+    };
+  };
+  about: { title: string; p1: string; p2: string; p3: string };
+  reviews: { title: string; items: { name: string; text: string }[] };
+  footer: {
+    hours: string; hoursValue: string; location: string; locationValue: string;
+    contact: string; socials: string; rights: string;
+  };
+  order: { title: string; subtitle: string; call: string; whatsapp: string; close: string };
+  floating: string;
+};
+
+export const translations: Record<Lang, Dict> = {
   en: {
     nav: { home: "Home", menu: "Menu", wholesale: "Wholesale", about: "About", contact: "Contact", call: "Call to Order" },
     hero: {
@@ -113,6 +139,6 @@ export const translations = {
     order: { title: "اطلب الآن", subtitle: "تواصل معنا مباشرة — سنحضّر طلبك.", call: "اتصل بالفرن", whatsapp: "واتساب", close: "إغلاق" },
     floating: "اطلب الآن",
   },
-} as const;
+};
 
-export type Translations = (typeof translations)["en"];
+export type Translations = Dict;
